@@ -10,4 +10,4 @@ openCV_path\Documents\opencv\build\x64\vc16\lib
 
 (if you find difficult please acess screen shot help)
 
-
+note:: no further setting is needed . this is enough because we are using a directive linker directly to access debug file . so no need to make nay change
