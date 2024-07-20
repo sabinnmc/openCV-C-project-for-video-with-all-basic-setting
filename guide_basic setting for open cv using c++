@@ -1,0 +1,11 @@
+1.   configuration properties --> VC++ Directories --> include directories 
+add below location 
+opencv_path\Documents\opencv\build\include
+
+(if you find difficult please acess screen shot help)
+
+2.   configuration properties --> VC++ Directories-->library directories 
+add below location
+openCV_path\Documents\opencv\build\x64\vc16\lib
+
+(if you find difficult please acess screen shot help)
