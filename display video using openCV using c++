@@ -1,0 +1,51 @@
+
+#include <iostream>
+#include <opencv2/opencv.hpp>
+
+#pragma comment(lib, "opencv_world490d.lib")
+// add this directive because it help to link a  a specific debug linker library file to your project 
+// warning:: i add because i could not load video with two header and other setting available in internet
+int main() 
+{
+    // Path to the video file
+    std::string videoPath = "C:\\sabin.bhandari\\Desktop\\uchinoura san\\サビンさんへ\\input\\1_vhe.mp4_front.mp4";
+
+    // Open the video file
+    cv::VideoCapture cap(videoPath);
+
+    // Check if the video file was opened successfully
+    if (!cap.isOpened()) {
+        std::cerr << "Error! Unable to open video file: " << videoPath << std::endl;
+        return -1;
+    }
+
+    cv::Mat frame;
+    while (true) {
+        // Capture frame-by-frame
+        cap >> frame;
+
+        // If the frame is empty, break immediately
+        if (frame.empty()) {
+            std::cout << "End of video file reached or unable to read frame." << std::endl;
+            break;
+        }
+
+        // Display the resulting frame
+        cv::imshow("Frame", frame);
+
+        // Press ESC on keyboard to exit
+        // here simply type casting  a size into char 
+        char c = (char)cv::waitKey(25);
+        if (c == 27) {
+            std::cout << "ESC key pressed. Exiting..." << std::endl;
+            break;
+        }
+    }
+
+    // Release the video capture and close all OpenCV windows
+    cap.release();
+    cv::destroyAllWindows();
+
+    return 0;
+}
+
